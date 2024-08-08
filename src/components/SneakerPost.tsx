@@ -1,12 +1,11 @@
 import { FC, useEffect, useRef, useState } from 'react'
 import { ISneaker } from './types/types'
 import { boughtSneakers } from '../data'
-import Swiper from 'swiper'
-import { Navigation, Pagination } from 'swiper/modules'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 
 interface SneakerProps {
 	sneaker: ISneaker
@@ -14,15 +13,6 @@ interface SneakerProps {
 }
 
 const SneakerProps: FC<SneakerProps> = ({ sneaker, inBasket }) => {
-	new Swiper(`.swiper${sneaker.id}`, {
-		modules: [Navigation, Pagination],
-		navigation: {
-			nextEl: `.button-next${sneaker.id}`,
-			prevEl: `.button-prev${sneaker.id}`,
-		},
-		loop: true,
-		touchRatio: 0,
-	})
 	const divRef = useRef<HTMLDivElement>(null)
 
 	const [isBuying, setIsBuying] = useState<boolean>(false)
@@ -50,11 +40,28 @@ const SneakerProps: FC<SneakerProps> = ({ sneaker, inBasket }) => {
 			<p style={{ height: '39px', fontSize: '17.3px' }}>
 				{sneaker.name.slice(0, 50)}
 			</p>
-			<div className={`swiper swiper${sneaker.id}`}>
-				<div className='swiper-wrapper'>
+			<Swiper
+				modules={[Navigation]}
+				observer={true}
+				observeParents={true}
+				navigation={{
+					nextEl: `.button-next${sneaker.id}`,
+					prevEl: `.button-prev${sneaker.id}`,
+				}}
+				loop={true}
+				touchRatio={0}
+			>
+				<SwiperSlide>
 					<div className='swiper-slide'>
-						<img src={sneaker.imageSrc} width='190px' height='190px'></img>
+						<img
+							src={sneaker.imageSrc}
+							width='190px'
+							height='190px'
+							className='imageInSneakerPost'
+						></img>
 					</div>
+				</SwiperSlide>
+				<SwiperSlide>
 					<div className='swiper-slide'>
 						<img
 							src={sneaker.imageRotateSrc}
@@ -62,8 +69,8 @@ const SneakerProps: FC<SneakerProps> = ({ sneaker, inBasket }) => {
 							height='190px'
 						></img>
 					</div>
-				</div>
-			</div>
+				</SwiperSlide>
+			</Swiper>
 			<div className={`swiper-button-next button-next${sneaker.id}`}></div>
 			<div className={`swiper-button-prev button-prev${sneaker.id}`}></div>
 			<p className='price'>{sneaker.estimatedMarketValue}</p>
