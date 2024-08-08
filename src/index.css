@@ -1,0 +1,157 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	height: calc(100% + 10px);
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+body {
+	height: auto;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+@media (150px < width < 768px) {
+	html {
+		overflow-x: hidden;
+		overflow-y: scroll;
+		min-height: 2100px;
+		max-height: 2100px;
+	}
+
+	body {
+		overflow-x: hidden;
+		overflow-y: hidden;
+		min-height: 2100px;
+		max-height: 2100px;
+	}
+}
+
+main {
+	margin-bottom: 10%;
+	margin-left: 50%;
+	height: auto;
+
+	transform: translate(-50%);
+	max-width: 1050px;
+	min-width: 350px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+@media (width > 1080px) {
+	main {
+		width: 1050px;
+	}
+}
+@media (660px < width < 1080px) {
+	main {
+		width: 650px;
+	}
+}
+
+.SneakerPost {
+	border: 1px solid grey;
+	border-radius: 25;
+	padding: 0.8rem 2rem;
+
+	text-align: center;
+	position: relative;
+	margin-bottom: 3%;
+}
+
+.icons img {
+	margin-right: 43%;
+}
+@media (width < 582px) {
+	.icons {
+		margin-right: 15%;
+	}
+
+	.icons img {
+		margin-right: 23%;
+	}
+}
+.icons img:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+.button {
+	text-align: center;
+	border: none;
+	border-radius: 20px;
+	transition: all 0.3s;
+	font-weight: bold;
+}
+
+.button:hover {
+	opacity: 0.8;
+}
+
+.NB_banner {
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.allBoughtSneakers h3 {
+	margin-top: 2%;
+}
+
+.button.buttonPay {
+	padding: 0.8rem 2rem;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+.allBoughtSneakers span {
+	margin-top: 2%;
+}
+
+.nothingFound {
+	margin-left: 50%;
+	transform: translate(-50%);
+	margin-top: -0.5%;
+	color: rgb(22, 21, 21);
+}
+
+.price {
+	color: green;
+	font-weight: bold;
+}
+
+.swiper-button-next::after {
+	font-size: 17px;
+	color: black;
+}
+.swiper-button-prev::after {
+	font-size: 17px;
+	color: black;
+}
+
+.boxes {
+	margin: 0 auto;
+	margin-top: -8%;
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: center;
+}
+
+.box {
+	width: 40px;
+	height: 45px;
+	border: 1px solid black;
+	font-size: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
