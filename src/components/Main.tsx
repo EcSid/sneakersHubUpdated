@@ -63,13 +63,40 @@ const Main: FC = () => {
 				)}
 			</main>
 			<div className='boxes'>
-				<div className='box' onClick={() => setPage(1)}>
+				<div className='box' onClick={() => {
+			setPage(1)
+			document
+										.querySelectorAll('.imageInSneakerPost')[3]
+										?.scrollIntoView({
+											block: 'end',
+											inline: 'center',
+											behavior: 'smooth',
+										})
+		}}>
 					1
 				</div>
-				<div className='box' onClick={() => setPage(2)}>
+				<div className='box' onClick={() => {
+			setPage(2)
+			document
+										.querySelectorAll('.imageInSneakerPost')[3]
+										?.scrollIntoView({
+											block: 'end',
+											inline: 'center',
+											behavior: 'smooth',
+										})
+		}}>
 					2
 				</div>
-				<div className='box' onClick={() => setPage(3)}>
+				<div className='box' onClick={() => {
+			setPage(3)
+			document
+										.querySelectorAll('.imageInSneakerPost')[3]
+										?.scrollIntoView({
+											block: 'end',
+											inline: 'center',
+											behavior: 'smooth',
+										})
+		}}>
 					3
 				</div>
 			</div>
